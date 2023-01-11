@@ -22,8 +22,9 @@ public class Task {
     @Column(name = "description", nullable = true)
     private String description;
 
-    @Column(name = "status", length = 100, nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", length = 40, nullable = false)
+    private TaskStatusEnum status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id", nullable = false)
